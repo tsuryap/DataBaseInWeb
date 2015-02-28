@@ -1,0 +1,11 @@
+.refresh{
+    background-image:url(../app-images/refresh.png);
+}
+.tables{
+    background-image:url(../app-images/tables.png);
+}
+.formatCell .x-grid-cell-inner{
+  margin:5px !important;
+  white-space:pre-wrap !important;
+  display:inline-block;
+}

@@ -13,6 +13,6 @@ Steps to be follwed to run this application.
 
 4.Open cmd prompt --> navigate to the application folder-> run the application with the follwing 
 
-  command node server.js
+  command -->node server.js
   
 5.Launch the application in browser http://localhost:3000/

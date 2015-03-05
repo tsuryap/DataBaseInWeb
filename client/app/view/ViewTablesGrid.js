@@ -4,10 +4,14 @@ Ext.define('dbview.view.ViewTablesGrid',{
     xtype:'viewTablesGrid',
     title:'',
     columns:[],
-	initComponent:function(){
+     columnLines: true,
+    initComponent:function(){
 	var me=this;
 	Ext.apply(me,{
-       store:Ext.create('dbview.store.GridStore')
+       store:Ext.create('dbview.store.GridStore'),
+       viewConfig:{
+       	stripeRows:true
+       }
 	});
 	
     me.callParent(arguments);

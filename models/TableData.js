@@ -1,4 +1,4 @@
-exports.getColumnsAndRowsOfTable=function(connection,dbName,req,res){
+exports.getColumnsAndRowsOfTable=function(connection,req,res){
     var data={
          columns:'',
          rows:''

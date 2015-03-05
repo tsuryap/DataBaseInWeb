@@ -12,7 +12,7 @@ initComponent:function(){
 	 tbar:[
 	       {
 	       	text:'Refresh',
-            iconCls :"refresh",
+            //iconCls :"refresh",
 	       	handler:function(){
 	       		me.store.load();
 	       	}
@@ -20,7 +20,6 @@ initComponent:function(){
 	      ],
      store:Ext.create('dbview.store.TablesStore')     
 	});
-	me.store.load();
 	me.callParent(arguments);
   }
 });

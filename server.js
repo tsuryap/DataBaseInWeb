@@ -7,7 +7,7 @@
   app.use(express.static(__dirname+"\\client"));
   
   var connection=mySqlConnection.createConnection();
-  var dbName=mySqlConnection.getDbName();
+ // var dbName=mySqlConnection.getDbName();
 
  // redirecting to home page 
   app.get('/', function (req, res) {
@@ -17,13 +17,14 @@
 
   // getting list of tables and sending response to client
   app.get('/getTables', function (req, res) {
-       listOfTablesInDB.getTablesInfo(connection,dbName,req, res);
+       listOfTablesInDB.getTablesInfo(connection,req, res);
 
   });
 
  //getting columsn and rows of selected table                  
   app.get('/getColumnNameAndRowsOfTable', function (req, res) {
-      tableData.getColumnsAndRowsOfTable(connection,dbName,req,res);
+    connection.changeUser({database:req.query.dbName});
+      tableData.getColumnsAndRowsOfTable(connection,req,res);
   });
   var server = app.listen(3000, function () {
 

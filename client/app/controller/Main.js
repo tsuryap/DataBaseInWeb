@@ -16,7 +16,7 @@ Ext.define('dbview.controller.Main', {
                     parent.getEl().mask("Please wait...", "x-mask-loading");
                     Ext.Ajax.request({
                         url: 'getColumnNameAndRowsOfTable',
-                        params: { 'tableName': r.data.text },
+                        params: { 'tableName': r.data.text,dbName:r.parentNode.data.text},
                         method: 'get',
                         success: function (response) {
                             var response = Ext.decode(response.responseText);

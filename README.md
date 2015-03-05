@@ -1,7 +1,6 @@
 # ExtJsAndNodeExample
 A Sample Web application done in Extjs framework and Node.The applciation will connects to the mysql database
-and get all the available tables in  the db and shows in a tree.If you click on any node(table) a new grid will get
-creates dynamically and shows all the rows and columns
+and get all the available tables in each database and shows in a tree.If you click on any node(table) a new grid will get creates dynamically and shows all the rows and columns
 
 Steps to be follwed to run this application.
 

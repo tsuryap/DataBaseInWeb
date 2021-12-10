@@ -10,6 +10,9 @@ Ext.define('dbview.controller.Main', {
             'tablesTree': {
 
                 itemclick: function (s, r) {
+                    if(r.hasChildNodes()) {
+                        return;
+                    }
                     var me = this;
                     var grid = me.getGrid();
                     var parent = grid.up().up();

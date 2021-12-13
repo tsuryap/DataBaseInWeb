@@ -23,7 +23,8 @@ Ext.define('dbview.view.Main', {
         xtype: 'panel',
         autoScroll:true,
         items:[{
-            xtype:'viewTablesGrid'
+            xtype:'viewTablesGrid',
+            height: 700,
         }]
     }]
 });

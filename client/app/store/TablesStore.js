@@ -6,7 +6,7 @@ proxy: {
             url : 'getTables',
             reader: {
                 type: 'json'
-                  }
+            }
        }
 
 });

@@ -15,9 +15,35 @@ Ext.define('dbview.controller.Main', {
                     }
                     var me = this;
                     var grid = me.getGrid();
+                    var store = grid.getStore();
                     var parent = grid.up().up();
                     parent.getEl().mask("Please wait...", "x-mask-loading");
-                    Ext.Ajax.request({
+                    store.getProxy().extraParams = {
+                        tableName: r.data.text,dbName:r.parentNode.data.text
+                    }
+                    store.model.setFields([]);
+                    store.load({
+                        callback: function(records, operation, success) {
+                            Ext.each(records, (item) => {
+                               item.data = item.raw;
+                            });
+                            parent.getEl().unmask();
+                            var response = Ext.decode(operation.response.responseText);
+                            var columns = [];
+                            var fields = [];
+                            var colName = undefined;
+                            for (var i = 0; i < response.columns.length; i++) {
+                                colName = response.columns[i].column_name;
+                                columns.push({ header: colName, dataIndex: colName, tdCls: 'formatCell' });
+                                fields.push(colName);
+                            }
+                            store.model.setFields(fields);
+                            grid.reconfigure(store, columns);
+                            grid.setTitle(r.data.text);
+
+                        }
+                    });
+                   /* Ext.Ajax.request({
                         url: 'getColumnNameAndRowsOfTable',
                         params: { 'tableName': r.data.text,dbName:r.parentNode.data.text},
                         method: 'get',
@@ -44,7 +70,7 @@ Ext.define('dbview.controller.Main', {
                         failure: function () {
                             Ext.Msg.alert("Hey Something went wrong")
                         }
-                    });
+                    });*/
                 }
             }
         });
